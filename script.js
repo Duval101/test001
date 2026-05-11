@@ -307,7 +307,8 @@
 
   function openExtronModal() {
     extronModal.removeAttribute('hidden');
-    requestAnimationFrame(() => extronModal.classList.add('modal-visible'));
+    extronModal.offsetHeight; // force reflow so opacity:0 is painted before transitioning
+    extronModal.classList.add('modal-visible');
     extronClose.focus();
     document.body.style.overflow = 'hidden';
   }
