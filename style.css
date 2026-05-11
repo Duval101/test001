@@ -1177,13 +1177,13 @@ h1, h2, h3, h4 {
    MODAL
 ============================================================ */
 .modal-overlay {
+  display: none;
   position: fixed;
   inset: 0;
   z-index: 2000;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
@@ -1191,12 +1191,12 @@ h1, h2, h3, h4 {
   transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-overlay.modal-visible {
-  opacity: 1;
+.modal-overlay.modal-open {
+  display: flex;
 }
 
-.modal-overlay[hidden] {
-  display: none;
+.modal-overlay.modal-visible {
+  opacity: 1;
 }
 
 .modal-card {

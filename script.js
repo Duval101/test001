@@ -306,8 +306,8 @@
   const extronClose  = document.getElementById('extronModalClose');
 
   function openExtronModal() {
-    extronModal.removeAttribute('hidden');
-    extronModal.offsetHeight; // force reflow so opacity:0 is painted before transitioning
+    extronModal.classList.add('modal-open');
+    extronModal.offsetHeight; // force reflow so opacity transition fires
     extronModal.classList.add('modal-visible');
     extronClose.focus();
     document.body.style.overflow = 'hidden';
@@ -316,7 +316,7 @@
   function closeExtronModal() {
     extronModal.classList.remove('modal-visible');
     extronModal.addEventListener('transitionend', () => {
-      extronModal.setAttribute('hidden', '');
+      extronModal.classList.remove('modal-open');
       document.body.style.overflow = '';
     }, { once: true });
     extronCard.focus();
