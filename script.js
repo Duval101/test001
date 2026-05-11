@@ -307,12 +307,19 @@
 
   function openExtronModal() {
     extronModal.classList.add('modal-open');
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      extronModal.classList.add('modal-visible');
+    }));
     document.body.style.overflow = 'hidden';
   }
 
   function closeExtronModal() {
-    extronModal.classList.remove('modal-open');
+    extronModal.classList.remove('modal-visible');
     document.body.style.overflow = '';
+    extronModal.addEventListener('transitionend', function handler() {
+      extronModal.classList.remove('modal-open');
+      extronModal.removeEventListener('transitionend', handler);
+    });
   }
 
   extronCard.addEventListener('click', openExtronModal);
