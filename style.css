@@ -1181,22 +1181,16 @@ h1, h2, h3, h4 {
   position: fixed;
   inset: 0;
   z-index: 2000;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   align-items: center;
   justify-content: center;
   padding: 24px;
-  opacity: 0;
-  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-overlay.modal-open {
   display: flex;
-}
-
-.modal-overlay.modal-visible {
-  opacity: 1;
 }
 
 .modal-card {

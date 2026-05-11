@@ -307,19 +307,12 @@
 
   function openExtronModal() {
     extronModal.classList.add('modal-open');
-    extronModal.offsetHeight; // force reflow so opacity transition fires
-    extronModal.classList.add('modal-visible');
-    extronClose.focus();
     document.body.style.overflow = 'hidden';
   }
 
   function closeExtronModal() {
-    extronModal.classList.remove('modal-visible');
-    extronModal.addEventListener('transitionend', () => {
-      extronModal.classList.remove('modal-open');
-      document.body.style.overflow = '';
-    }, { once: true });
-    extronCard.focus();
+    extronModal.classList.remove('modal-open');
+    document.body.style.overflow = '';
   }
 
   extronCard.addEventListener('click', openExtronModal);
@@ -334,7 +327,7 @@
   });
 
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && !extronModal.hasAttribute('hidden')) closeExtronModal();
+    if (e.key === 'Escape' && extronModal.classList.contains('modal-open')) closeExtronModal();
   });
 
 })();
