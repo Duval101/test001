@@ -460,6 +460,7 @@ h1, h2, h3, h4 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+  align-content: start;
 }
 
 .stat-card {
