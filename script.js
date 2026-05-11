@@ -297,4 +297,43 @@
   window.addEventListener('scroll', updateProgressBar, { passive: true });
   updateProgressBar();
 
+
+  /* ----------------------------------------------------------
+     9. EXTRON CERTIFICATIONS MODAL
+  ---------------------------------------------------------- */
+  const extronCard   = document.getElementById('extronCard');
+  const extronModal  = document.getElementById('extronModal');
+  const extronClose  = document.getElementById('extronModalClose');
+
+  function openExtronModal() {
+    extronModal.removeAttribute('hidden');
+    requestAnimationFrame(() => extronModal.classList.add('modal-visible'));
+    extronClose.focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeExtronModal() {
+    extronModal.classList.remove('modal-visible');
+    extronModal.addEventListener('transitionend', () => {
+      extronModal.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }, { once: true });
+    extronCard.focus();
+  }
+
+  extronCard.addEventListener('click', openExtronModal);
+  extronCard.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openExtronModal(); }
+  });
+
+  extronClose.addEventListener('click', closeExtronModal);
+
+  extronModal.addEventListener('click', e => {
+    if (e.target === extronModal) closeExtronModal();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !extronModal.hasAttribute('hidden')) closeExtronModal();
+  });
+
 })();

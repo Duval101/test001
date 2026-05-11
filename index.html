@@ -356,13 +356,13 @@
           <span class="cert-badge">Certified</span>
         </div>
 
-        <div class="cert-card reveal">
+        <div class="cert-card reveal" id="extronCard" role="button" tabindex="0" aria-haspopup="dialog" style="cursor:pointer;">
           <div class="cert-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </div>
           <h3 class="cert-name">Extron Certifications</h3>
           <p class="cert-issuer">Extron Electronics</p>
-          <span class="cert-badge cert-badge-multi">Multiple</span>
+          <span class="cert-badge cert-badge-multi">Multiple — click to view</span>
         </div>
 
       </div>
@@ -532,6 +532,37 @@
       <span class="footer-copy">&copy; 2026</span>
     </div>
   </footer>
+
+  <!-- ============================================================
+       EXTRON MODAL
+  ============================================================ -->
+  <div id="extronModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="extronModalTitle" hidden>
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="cert-icon modal-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div>
+            <h3 id="extronModalTitle" class="modal-title">Extron Certifications</h3>
+            <p class="modal-subtitle">Extron Electronics</p>
+          </div>
+        </div>
+        <button class="modal-close" id="extronModalClose" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <ul class="modal-cert-list">
+        <li>Audio Principles</li>
+        <li>Video Principles</li>
+        <li>Wireless Principles</li>
+        <li>Streaming Principles</li>
+        <li>Networking Principles</li>
+        <li>AV Associate Final Exam v5</li>
+        <li>Signal Processing and Distribution Principles</li>
+      </ul>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
